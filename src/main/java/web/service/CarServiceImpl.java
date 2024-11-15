@@ -1,11 +1,12 @@
 package web.service;
 
+import org.springframework.stereotype.Component;
 import web.model.Car;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
+@Component
 public class CarServiceImpl implements CarService {
     @Override
     public List<Car> getCountCars(int count) {
@@ -16,6 +17,6 @@ public class CarServiceImpl implements CarService {
         cars.add(new Car("model4", "color4", "engine4"));
         cars.add(new Car("model5", "color5", "engine5"));
 
-        return cars.stream().limit(count).collect(Collectors.toList());
+        return cars.stream().limit(count).toList();
     }
 }
